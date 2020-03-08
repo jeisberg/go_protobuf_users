@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package main;
+package users;
 
 message UserMessage {
   	uint64 id = 1;
