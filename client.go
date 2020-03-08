@@ -13,24 +13,28 @@ const (
 )
 
 func main() {
-
+	// dial up the service endpoint here
 	conn, err := grpc.Dial(address, grpc.WithInsecure(), grpc.WithBlock())
-	
+	// sanity check
 	if err != nil {
+		// fatal didn't bind here
 		log.Fatalf("did not connect: %v", err)
 	}
-	
+	// close on defer
 	defer conn.Close()
-	c := pb.NewUserServiceClient(conn)
-
+	// new client here
+	api := pb.NewUserServiceClient(conn)
+	// set the timeout 
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+	// defer cancel
 	defer cancel()
-	
-	r, err := c.GetUser(ctx, &pb.UserMessage{Id: 5})
-	
+	// get the user from the client
+	user, err := api.GetUser(ctx, &pb.UserMessage{Id: 5})
+	// sanity check
 	if err != nil {
+		// could not get the user here
 		log.Fatalf("could not get user: %v", err)
 	}
-	
-	log.Printf("User: %s", r)
+	// print the user
+	log.Printf("User: %s", user)
 }
