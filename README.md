@@ -7,9 +7,13 @@
 --- .bash_profile ----
 
 export GOPATH="${HOME}/.go"
+
 export GOROOT="$(brew --prefix golang)/libexec"
+
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
 test -d "${GOPATH}" || mkdir "${GOPATH}"
+
 test -d "${GOPATH}/src/github.com" || mkdir -p "${GOPATH}/src/github.com"
 
 --- brew ---
@@ -29,9 +33,11 @@ git clone https://github.com/jeisberg/go_protobuf_users
 --- Server ---
 
 cd $INSTALL_DIR;
+go build main.go
 ./main
 
 --- CLIENT ---
 
 cd $INSTALL_DIR;
+go build client.go
 ./client
