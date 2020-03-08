@@ -32,19 +32,17 @@ git clone https://github.com/jeisberg/go_protobuf_users
 
 --- PROTO ---
 
+cd go_protobuf_users
+
 protoc -I users users/users.proto --go_out=plugins=grpc:users
 
 --- Server ---
-
-cd $INSTALL_DIR;
 
 go build main.go
 
 ./main
 
 --- CLIENT ---
-
-cd $INSTALL_DIR;
 
 go build client.go
 
