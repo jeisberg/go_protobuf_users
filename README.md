@@ -21,9 +21,11 @@ test -d "${GOPATH}/src/github.com" || mkdir -p "${GOPATH}/src/github.com"
 brew install go
 
 go get golang.org/x/tools/cmd/godoc
+
 go get github.com/golang/lint/golint
 
 brew install protobuf
+
 brew install protoc-gen-go
 
 --- GIT ---
