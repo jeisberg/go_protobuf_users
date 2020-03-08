@@ -37,11 +37,15 @@ protoc -I users users/users.proto --go_out=plugins=grpc:users
 --- Server ---
 
 cd $INSTALL_DIR;
+
 go build main.go
+
 ./main
 
 --- CLIENT ---
 
 cd $INSTALL_DIR;
+
 go build client.go
+
 ./client
