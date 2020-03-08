@@ -23,9 +23,9 @@ func (s *server) GetUser(ctx context.Context, in *pb.UserMessage) (*pb.UserMessa
 	log.Printf("Received: %v", in.GetId())
 	
 	return &pb.UserMessage {
-		Id: "Id: " + in.GetId(),
+		Id: in.GetId(),
 		Name: "Name: Captain Funk",
-		Email: "captainfunk@legit.com"
+		Email: "captainfunk@legit.com",
 	}, 
 	nil
 }
