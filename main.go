@@ -23,7 +23,7 @@ func (s *server) GetUser(ctx context.Context, in *pb.UserMessage) (*pb.UserMessa
 	// return a user
 	return &pb.UserMessage {
 		Id: in.GetId(),
-		Name: "Name: Captain Funk",
+		Name: "Captain Funk",
 		Email: "captainfunk@legit.com",
 	}, 
 	nil // no error for now
