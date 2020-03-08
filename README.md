@@ -30,6 +30,10 @@ brew install protoc-gen-go
 
 git clone https://github.com/jeisberg/go_protobuf_users
 
+--- PROTO ---
+
+protoc -I users users/users.proto --go_out=plugins=grpc:users
+
 --- Server ---
 
 cd $INSTALL_DIR;
